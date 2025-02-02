@@ -6,6 +6,7 @@
     "**/bin": true,
     "**/obj": true
   },
+  "dotnet-test-explorer.testProjectPath": "**/*Tests.csproj",
   "github.copilot.chat.testGeneration.instructions": [
     {
       "file": ".github/copilot-instructions/copilot-test-instructions.md"
