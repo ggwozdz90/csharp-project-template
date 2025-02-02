@@ -1,44 +1,3 @@
-# C# Testing Guidelines for GitHub Copilot
-
-## Naming Convention
-
-```csharp
-MethodName_Scenario_ExpectedResult
-
-Examples:
-- GetUser_WithValidId_ReturnsUser
-- SaveData_WhenDatabaseError_ThrowsException
-```
-
-## Tools Usage
-
-- **NUnit**: Test framework
-- **NSubstitute**: For mocking (`Substitute.For<T>()`)
-- **FluentAssertions**: For assertions (`result.Should().Be()`)
-- **System.IO.Abstractions.TestingHelpers**: For file system mocking
-
-## Common Scenarios Reference
-
-Check these aspects when writing tests:
-
-- Validation logic
-- Error handling
-- External dependencies
-- Async operations
-- Resource cleanup
-- Test coverage
-
-## Required Test Cases
-
-1. Success path
-2. Error handling
-3. Edge cases (null, empty, invalid data)
-4. Async operations
-5. Dependencies behavior
-
-## Test Structure
-
-```csharp
 using System.IO.Abstractions.TestingHelpers;
 using Example.Data.Repositories;
 using FluentAssertions;
@@ -75,5 +34,17 @@ public class FileRepositoryTests
         // Then
         result.Should().Be(expectedFileSize);
     }
+
+    [Test]
+    public void GetFileSize_WhenFileDoesNotExist_ShouldThrowFileNotFoundException()
+    {
+        // Given
+        var filePath = @"C:\test\nonexistent.txt";
+
+        // When, Then
+        fileRepository
+            .Invoking(repo => repo.GetFileSize(filePath))
+            .Should()
+            .Throw<FileNotFoundException>();
+    }
 }
-```
