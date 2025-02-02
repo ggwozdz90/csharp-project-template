@@ -41,7 +41,7 @@ internal sealed class FileAdapterTests
     {
         // Given
         var filePath = "invalidFilePath.txt";
-        getFileSizeUseCase.Execute(filePath).Throws(new Exception("File not found"));
+        getFileSizeUseCase.Execute(filePath).Throws(new FileNotFoundException("File not found"));
 
         // When
         Action act = () => fileAdapter.GetFileSize(filePath);

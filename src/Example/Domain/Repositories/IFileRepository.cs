@@ -1,6 +1,6 @@
 namespace Example.Domain.Repositories;
 
-public interface IFileRepository
+internal interface IFileRepository
 {
     long GetFileSize(string filePath);
 }

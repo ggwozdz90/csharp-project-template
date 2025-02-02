@@ -1,5 +1,4 @@
 source https://api.nuget.org/v3/index.json
-source https://nuget.pkg.github.com/ggwozdz90/index.json username: "%GITHUB_USERNAME%" password: "%GITHUB_TOKEN%" authtype: "basic"
 
 storage: none
 nuget FluentAssertions 8.0.1

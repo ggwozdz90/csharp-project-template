@@ -1,5 +1,5 @@
 using Example.Application.UseCases;
-using Example.Domain.Repositories;
+using Example.Domain.Services;
 using FluentAssertions;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
@@ -10,14 +10,14 @@ namespace Example.Tests.Application.UseCases;
 [TestFixture]
 internal sealed class GetFileSizeUseCaseTests
 {
-    private IFileRepository fileRepository = null!;
+    private IFileService fileService = null!;
     private GetFileSizeUseCase getFileSizeUseCase = null!;
 
     [SetUp]
     public void Setup()
     {
-        fileRepository = Substitute.For<IFileRepository>();
-        getFileSizeUseCase = new GetFileSizeUseCase(fileRepository);
+        fileService = Substitute.For<IFileService>();
+        getFileSizeUseCase = new GetFileSizeUseCase(fileService);
     }
 
     [Test]
@@ -26,14 +26,14 @@ internal sealed class GetFileSizeUseCaseTests
         // Given
         var filePath = "validFilePath.txt";
         var expectedSize = 1024L;
-        fileRepository.GetFileSize(filePath).Returns(expectedSize);
+        fileService.GetFileSize(filePath).Returns(expectedSize);
 
         // When
         var result = getFileSizeUseCase.Execute(filePath);
 
         // Then
         result.Should().Be(expectedSize);
-        fileRepository.Received(1).GetFileSize(filePath);
+        fileService.Received(1).GetFileSize(filePath);
     }
 
     [Test]
@@ -41,13 +41,13 @@ internal sealed class GetFileSizeUseCaseTests
     {
         // Given
         var filePath = "invalidFilePath.txt";
-        fileRepository.GetFileSize(filePath).Throws(new Exception("File not found"));
+        fileService.GetFileSize(filePath).Throws(new FileNotFoundException("File not found"));
 
         // When
         Action act = () => getFileSizeUseCase.Execute(filePath);
 
         // Then
-        act.Should().Throw<Exception>().WithMessage("File not found");
-        fileRepository.Received(1).GetFileSize(filePath);
+        act.Should().Throw<FileNotFoundException>().WithMessage("File not found");
+        fileService.Received(1).GetFileSize(filePath);
     }
 }

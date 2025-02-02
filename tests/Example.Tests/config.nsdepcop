@@ -1,0 +1,3 @@
+﻿<NsDepCopConfig ChildCanDependOnParentImplicitly="true" CheckAssemblyDependencies="false">
+  <Allowed From="*" To="*" />
+</NsDepCopConfig>

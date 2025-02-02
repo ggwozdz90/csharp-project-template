@@ -1,16 +1,16 @@
-using Example.Domain.Repositories;
+using Example.Domain.Services;
 
 namespace Example.Application.UseCases;
 
-public interface IGetFileSizeUseCase
+internal interface IGetFileSizeUseCase
 {
     long Execute(string filePath);
 }
 
-public class GetFileSizeUseCase(IFileRepository fileRepository) : IGetFileSizeUseCase
+internal class GetFileSizeUseCase(IFileService fileService) : IGetFileSizeUseCase
 {
     public long Execute(string filePath)
     {
-        return fileRepository.GetFileSize(filePath);
+        return fileService.GetFileSize(filePath);
     }
 }

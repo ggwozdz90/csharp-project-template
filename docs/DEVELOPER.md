@@ -17,6 +17,18 @@
   - Config file for the dotnet CLI [commands](../.config/dotnet-tools.json).
 - **Paket**: A [package manager](https://fsprojects.github.io/Paket/index.html) for .NET that supports referencing NuGet packages, files from GitHub, Gists, and HTTP. Unlike NuGet, Paket separates transitive dependencies and provides control over conflicting package versions.
   - Config file for Paket [dependencies](../paket.dependencies).
+- **Directory.Build.props**: A [file](../Directory.Build.props) that allows you to define common properties for all projects in a solution.
+- **Directory.Packages.props**: A [file](../Directory.Packages.props) that allows you to define common package references for all projects in a solution. Used to reference analyzers and tools. Paket is not able to manage these types of dependencies.
+- **Analyzers and Code Fixers**: A set of analyzers and code fixers to enforce code quality and style rules.
+  - Config file for the analyzers and code fixers [rules](../.editorconfig).
+  - References to the analyzers and code fixers in the [Directory.Packages.props](../Directory.Packages.props) file.
+- **InternalsVisibleTo**: By default, all projects in the solution are configured to expose internal members to the test projects thanks to configuration in the [Directory.Build.props](../Directory.Build.props) file.
+- **.gitignore**: A [file](../.gitignore) that ignores common files for .NET projects and IDEs.
+- **.gitattributes**: A [file](../.gitattributes) that sets the default line ending for the repository.
+- **.editorconfig**: A [file](../.editorconfig) that defines a coding style for consistent code formatting.
+- **NsDepCop**: A [tool](https://github.com/realvizu/NsDepCop) that enforces namespace dependency rules following the Clean Architecture principles.
+  - Global config file for NsDepCop [rules](../NsDepCop.json).
+  - Config file for project-specific NsDepCop [rules](../src/Example/config.nsdepcop).
 
 ## Getting Started
 

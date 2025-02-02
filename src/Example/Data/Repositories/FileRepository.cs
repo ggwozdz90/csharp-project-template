@@ -3,7 +3,7 @@ using Example.Domain.Repositories;
 
 namespace Example.Data.Repositories;
 
-public class FileRepository(IFileSystem fileSystem) : IFileRepository
+internal class FileRepository(IFileSystem fileSystem) : IFileRepository
 {
     public long GetFileSize(string filePath)
     {

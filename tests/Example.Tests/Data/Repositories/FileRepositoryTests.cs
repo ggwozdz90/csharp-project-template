@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace Example.Tests.Data.Repositories;
 
 [TestFixture]
-public class FileRepositoryTests
+internal class FileRepositoryTests
 {
     private MockFileSystem mockFileSystem = null!;
     private FileRepository fileRepository = null!;
@@ -42,9 +42,6 @@ public class FileRepositoryTests
         var filePath = @"C:\test\nonexistent.txt";
 
         // When, Then
-        fileRepository
-            .Invoking(repo => repo.GetFileSize(filePath))
-            .Should()
-            .Throw<FileNotFoundException>();
+        fileRepository.Invoking(repo => repo.GetFileSize(filePath)).Should().Throw<FileNotFoundException>();
     }
 }
