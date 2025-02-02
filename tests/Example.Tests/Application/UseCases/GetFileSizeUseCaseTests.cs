@@ -24,8 +24,8 @@ internal sealed class GetFileSizeUseCaseTests
     public void Execute_WithValidFilePath_ReturnsFileSize()
     {
         // Given
-        var filePath = "validFilePath.txt";
-        var expectedSize = 1024L;
+        const string filePath = "validFilePath.txt";
+        const long expectedSize = 1024L;
         fileService.GetFileSize(filePath).Returns(expectedSize);
 
         // When
@@ -40,7 +40,7 @@ internal sealed class GetFileSizeUseCaseTests
     public void Execute_WhenRepositoryThrowsException_ThrowsException()
     {
         // Given
-        var filePath = "invalidFilePath.txt";
+        const string filePath = "invalidFilePath.txt";
         fileService.GetFileSize(filePath).Throws(new FileNotFoundException("File not found"));
 
         // When

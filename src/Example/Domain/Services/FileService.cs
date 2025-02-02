@@ -7,7 +7,7 @@ internal interface IFileService
     long GetFileSize(string filePath);
 }
 
-internal class FileService(IFileRepository fileRepository) : IFileService
+internal sealed class FileService(IFileRepository fileRepository) : IFileService
 {
     public long GetFileSize(string filePath)
     {

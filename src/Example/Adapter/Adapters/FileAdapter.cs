@@ -15,7 +15,7 @@ public interface IFileAdapter
     long GetFileSize(string filePath);
 }
 
-internal class FileAdapter(IGetFileSizeUseCase getFileSizeUseCase) : IFileAdapter
+internal sealed class FileAdapter(IGetFileSizeUseCase getFileSizeUseCase) : IFileAdapter
 {
     public long GetFileSize(string filePath)
     {

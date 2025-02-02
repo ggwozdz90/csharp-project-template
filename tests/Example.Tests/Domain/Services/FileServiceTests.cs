@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace Example.Tests.Domain.Services;
 
 [TestFixture]
-internal class FileServiceTests
+internal sealed class FileServiceTests
 {
     private IFileRepository fileRepository = null!;
     private FileService fileService = null!;
@@ -24,8 +24,8 @@ internal class FileServiceTests
     public void GetFileSize_WithValidFilePath_ReturnsFileSize()
     {
         // Given
-        var filePath = @"C:\test\file.txt";
-        var expectedFileSize = 12345L;
+        const string filePath = @"C:\test\file.txt";
+        const long expectedFileSize = 12345L;
         fileRepository.GetFileSize(filePath).Returns(expectedFileSize);
 
         // When
@@ -39,7 +39,7 @@ internal class FileServiceTests
     public void GetFileSize_WithInvalidFilePath_ThrowsException()
     {
         // Given
-        var filePath = @"C:\invalid\file.txt";
+        const string filePath = @"C:\invalid\file.txt";
         fileRepository.GetFileSize(filePath).Throws(new FileNotFoundException());
 
         // When

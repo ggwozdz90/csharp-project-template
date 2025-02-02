@@ -7,7 +7,7 @@ internal interface IGetFileSizeUseCase
     long Execute(string filePath);
 }
 
-internal class GetFileSizeUseCase(IFileService fileService) : IGetFileSizeUseCase
+internal sealed class GetFileSizeUseCase(IFileService fileService) : IGetFileSizeUseCase
 {
     public long Execute(string filePath)
     {

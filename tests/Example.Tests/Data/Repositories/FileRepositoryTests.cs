@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace Example.Tests.Data.Repositories;
 
 [TestFixture]
-internal class FileRepositoryTests
+internal sealed class FileRepositoryTests
 {
     private MockFileSystem mockFileSystem = null!;
     private FileRepository fileRepository = null!;
@@ -22,8 +22,8 @@ internal class FileRepositoryTests
     public void GetFileSize_WhenFileExists_ShouldReturnFileSize()
     {
         // Given
-        var filePath = @"C:\test\file.txt";
-        var fileContent = "Hello, world!";
+        const string filePath = @"C:\test\file.txt";
+        const string fileContent = "Hello, world!";
         var expectedFileSize = fileContent.Length;
 
         mockFileSystem.AddFile(filePath, new MockFileData(fileContent));
@@ -39,7 +39,7 @@ internal class FileRepositoryTests
     public void GetFileSize_WhenFileDoesNotExist_ShouldThrowFileNotFoundException()
     {
         // Given
-        var filePath = @"C:\test\nonexistent.txt";
+        const string filePath = @"C:\test\nonexistent.txt";
 
         // When, Then
         fileRepository.Invoking(repo => repo.GetFileSize(filePath)).Should().Throw<FileNotFoundException>();

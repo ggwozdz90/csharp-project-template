@@ -4,9 +4,17 @@
   "tools": {
     "paket": {
       "version": "9.0.2",
-      "commands": [
-        "paket"
-      ],
+      "commands": ["paket"],
+      "rollForward": false
+    },
+    "husky": {
+      "version": "0.7.2",
+      "commands": ["husky"],
+      "rollForward": false
+    },
+    "csharpier": {
+      "version": "0.30.6",
+      "commands": ["dotnet-csharpier"],
       "rollForward": false
     }
   }

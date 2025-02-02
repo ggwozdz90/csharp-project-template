@@ -29,6 +29,9 @@
 - **NsDepCop**: A [tool](https://github.com/realvizu/NsDepCop) that enforces namespace dependency rules following the Clean Architecture principles.
   - Global config file for NsDepCop [rules](../NsDepCop.json).
   - Config file for project-specific NsDepCop [rules](../src/Example/config.nsdepcop).
+- **Husky.NET**: A [tool](https://alirezanet.github.io/Husky.Net/) that enforces code quality and style rules with git hooks.
+  - git hooks are available in the [.husky](../.husky) directory.
+  - task runner configuration is available in the [task-runner.json](../.husky/task-runner.json) file.
 
 ## Getting Started
 
@@ -81,4 +84,31 @@
 
     ```bash
     dotnet paket convert-from-nuget
+    ```
+
+## Husky.NET Quick Reference
+
+- **Install Husky.NET CLI**:
+
+    ```bash
+    dotnet new tool-manifest
+    dotnet tool install Husky
+    ```
+
+- **Set up Husky.NET in the project**:
+
+    ```bash
+    dotnet husky install
+    ```
+
+- **Run Husky.NET tasks**:
+
+    ```bash
+    dotnet husky run
+    ```
+
+- **Add new git hooks**:
+
+    ```bash
+    dotnet husky add <hook-name>
     ```
