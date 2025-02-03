@@ -6,6 +6,7 @@
     "**/bin": true,
     "**/obj": true,
     "**/paket-files": true,
+    "**/.paket": true,
     "**/node_modules": true
   },
   "dotnet-test-explorer.testProjectPath": "**/*Tests.csproj",
