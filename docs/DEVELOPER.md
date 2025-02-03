@@ -38,6 +38,8 @@
   - Configured to run on pre-commit using [Husky.NET](../.husky/task-runner.json).
 - **Cspell**: A tool to check spelling in Markdown, text, C#, JSON, and YAML files.
   - Configured to run on pre-commit using [Husky.NET](../.husky/task-runner.json) with configuration [.cspell.json](../.config/cspell.json) file.
+- **Commitlint**: A tool to enforce conventional commit message style rules.
+  - Configured to run on pre-commit using [Husky.NET](../.husky/task-runner.json) with configuration [.commitlintrc.json](../.config/commitlintrc.json) file.
 
 ## Getting Started
 

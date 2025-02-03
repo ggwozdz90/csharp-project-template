@@ -73,6 +73,19 @@
       "group": "pre-push-operations",
       "command": "dotnet",
       "args": ["test"]
+    },
+    {
+      "name": "commitlint",
+      "group": "commit-msg-operations",
+      "command": "npx",
+      "args": [
+        "commitlint",
+        "--edit",
+        "${args}",
+        "--verbose",
+        "--config",
+        ".config/.commitlintrc.json"
+      ]
     }
   ]
 }
