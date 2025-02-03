@@ -4,7 +4,9 @@
   "files.exclude": {
     "**/.vs": true,
     "**/bin": true,
-    "**/obj": true
+    "**/obj": true,
+    "**/paket-files": true,
+    "**/node_modules": true
   },
   "dotnet-test-explorer.testProjectPath": "**/*Tests.csproj",
   "github.copilot.chat.testGeneration.instructions": [

@@ -1,3 +1,4 @@
-﻿<NsDepCopConfig ChildCanDependOnParentImplicitly="true" CheckAssemblyDependencies="false">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NsDepCopConfig ChildCanDependOnParentImplicitly="true" CheckAssemblyDependencies="false">
   <Allowed From="*" To="*" />
 </NsDepCopConfig>

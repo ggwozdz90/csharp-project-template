@@ -32,6 +32,12 @@
 - **Husky.NET**: A [tool](https://alirezanet.github.io/Husky.Net/) that enforces code quality and style rules with git hooks.
   - git hooks are available in the [.husky](../.husky) directory.
   - task runner configuration is available in the [task-runner.json](../.husky/task-runner.json) file.
+- **Prettier**: A tool to format JSON and YAML files.
+  - Configured to run on pre-commit using [Husky.NET](../.husky/task-runner.json) with configuration [.editorconfig](../.editorconfig).
+- **Markdownlint**: A tool to enforce style rules for Markdown files.
+  - Configured to run on pre-commit using [Husky.NET](../.husky/task-runner.json).
+- **Cspell**: A tool to check spelling in Markdown, text, C#, JSON, and YAML files.
+  - Configured to run on pre-commit using [Husky.NET](../.husky/task-runner.json) with configuration [.cspell.json](../.config/cspell.json) file.
 
 ## Getting Started
 
@@ -47,6 +53,12 @@
     dotnet paket restore
     ```
 
+3. Run the following command to install Node.js dependencies:
+
+    ```bash
+    npm install
+    ```
+
 ## Paket Quick Reference
 
 - **Install Paket CLI**:
@@ -56,7 +68,7 @@
     dotnet tool install paket
     ```
 
-- **Restore Paket dendencies**:
+- **Restore Paket dependencies**:
 
     ```bash
     dotnet paket restore
@@ -111,4 +123,87 @@
 
     ```bash
     dotnet husky add <hook-name>
+    ```
+
+## Dotnet format Quick Reference
+
+- **Run dotnet format and apply formatting**:
+
+    ```bash
+    dotnet format --verbosity detailed --severity info
+    ```
+
+- **Run dotnet format and check formatting**:
+
+    ```bash
+    dotnet format --verify-no-changes --verbosity detailed --severity info
+    ```
+
+## CSharpier Quick Reference
+
+- **Install CSharpier CLI**:
+
+    ```bash
+    dotnet new tool-manifest
+    dotnet tool install csharpier
+    ```
+
+- **Run CSharpier and apply formatting**:
+
+    ```bash
+    dotnet csharpier . --loglevel debug
+    ```
+
+- **Run CSharpier and check formatting**:
+
+    ```bash
+    dotnet csharpier . --check --loglevel debug
+    ```
+
+## Prettier Quick Reference
+
+- **Install Prettier CLI**:
+
+    ```bash
+    npm install --save-dev prettier
+    ```
+
+- **Run Prettier and apply formatting**:
+
+    ```bash
+    npx prettier "**/*.{json,yaml}" --write --log-level log --no-config
+    ```
+
+- **Run Prettier and check formatting**:
+
+    ```bash
+    npx prettier "**/*.{json,yaml}" --check --log-level log --no-config
+    ```
+
+## Markdownlint Quick Reference
+
+- **Install Markdownlint CLI**:
+
+    ```bash
+    npm install --save-dev markdownlint-cli
+    ```
+
+- **Run Markdownlint**:
+
+    ```bash
+    npx markdownlint . --dot --ignore node_modules --ignore packages --ignore CHANGELOG.md --disable MD013
+    ```
+
+## Cspell Quick Reference
+
+- **Install Cspell CLI**:
+
+    ```bash
+    npm install --save-dev cspell
+    ```
+
+- **Run Cspell**:
+
+    ```bash
+    npx cspell "**/*.{md,txt,yaml,json,cs}" --config .config/cspell.json
     ```
