@@ -7,8 +7,11 @@
     "**/obj": true,
     "**/paket-files": true,
     "**/.paket": true,
-    "**/node_modules": true
+    "**/node_modules": true,
+    "**/packages": true
   },
+  "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "fullSolution",
+  "dotnet.backgroundAnalysis.compilerDiagnosticsScope": "fullSolution",
   "dotnet-test-explorer.testProjectPath": "**/*Tests.csproj",
   "github.copilot.chat.testGeneration.instructions": [
     {

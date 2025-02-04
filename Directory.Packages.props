@@ -60,7 +60,6 @@
     </PackageReference>
   </ItemGroup>
 
-
   <!-- Focused analyzers for specific code quality checks -->
   <ItemGroup>
     <!-- Helps developers in finding and correcting common async/await misuses -->
