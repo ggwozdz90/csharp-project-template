@@ -20,6 +20,16 @@
       "file": ".github/copilot-instructions/copilot-commit-instructions.md"
     }
   ],
+  "github.copilot.chat.reviewSelection.instructions": [
+    {
+      "file": ".github/copilot-instructions/copilot-code-and-review-instructions.md"
+    }
+  ],
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".github/copilot-instructions/copilot-code-and-review-instructions.md"
+    }
+  ],
   "github.copilot.chat.generateTests.codeLens": true,
   "github.copilot.enable": {
     "*": true,
